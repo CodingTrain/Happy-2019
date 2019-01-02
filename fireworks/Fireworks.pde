@@ -4,7 +4,8 @@ ArrayList<Firework> fireworks;
 PFont font;
 
 void setup() {
-  size(window.innerWidth*0.725, window.innerHeight*0.7);
+size(window.innerWidth*0.75, window.innerWidth*0.4);
+
   colorMode(HSB);
 
   fireworks = new ArrayList();

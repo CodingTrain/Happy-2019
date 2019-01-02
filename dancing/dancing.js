@@ -40,7 +40,7 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(window.innerWidth*0.5, window.innerHeight*0.5);
+  var canvas = createCanvas(window.innerWidth*0.75, window.innerWidth*0.5);
   canvas.parent('dancing');
 
   // Initialize the physics
