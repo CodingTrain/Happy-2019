@@ -36,11 +36,11 @@ var audio;
 var started = false;
 
 function preload() {
-  audio = loadSound('../data/auld2.mp3');
+  audio = loadSound('data/auld2.mp3');
 }
 
 function setup() {
-  var canvas = createCanvas(600, 400);
+  var canvas = createCanvas(window.innerWidth*0.5, window.innerHeight*0.5);
   canvas.parent('dancing');
 
   // Initialize the physics
