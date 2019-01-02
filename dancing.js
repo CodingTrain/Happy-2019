@@ -4,13 +4,13 @@
 
 // Simple Toxiclibs Spring
 var VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
-  GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
-  AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
-  VerletParticle2D = toxi.physics2d.VerletParticle2D,
-  VerletSpring2D = toxi.physics2d.VerletSpring2D,
-  VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
-  Vec2D = toxi.geom.Vec2D,
-  Rect = toxi.geom.Rect;
+GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
+AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
+VerletParticle2D = toxi.physics2d.VerletParticle2D,
+VerletSpring2D = toxi.physics2d.VerletSpring2D,
+VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
+Vec2D = toxi.geom.Vec2D,
+Rect = toxi.geom.Rect;
 
 // Reference to physics world
 var physics;
@@ -36,7 +36,7 @@ var audio;
 var started = false;
 
 function preload() {
-  audio = loadSound('data/auld2.mp3');
+  audio = loadSound('data/auld2.mp3');;
 }
 
 function setup() {
@@ -58,60 +58,52 @@ function setup() {
 var counter = 0;
 
 function draw() {
-  if (!started) {
-    background(0);
-    textAlign(CENTER);
-    textSize(24);
-    fill(255);
-    noStroke();
-    text('click to begin', width / 2, height / 2);
-  } else {
-    // Update the physics world
-    //if (dance || frameCount < 2) {
+  // Update the physics world
+  //if (dance || frameCount < 2) {
     physics.update();
     counter++;
-    //}
+  //}
 
-    background(255);
+  background(255);
 
-    push();
-    translate(width / 2, height / 2);
-    rotate(counter * 0.01);
-    var delta = TWO_PI / 20;
-    var r = width;
-    colorMode(HSB);
-    for (var a = 0; a < TWO_PI; a += delta) {
-      var c = color(int(map(a + counter / 20.0, 0, TWO_PI, 0, 255)) % 255, 255, 255);
-      fill(c);
-      stroke(c);
+  push();
+  translate(width / 2, height / 2);
+  rotate(counter * 0.01);
+  var delta = TWO_PI / 20;
+  var r = width;
+  colorMode(HSB);
+  for (var a = 0; a < TWO_PI; a += delta) {
+    var c = color(int(map(a + counter / 20.0, 0, TWO_PI, 0, 255)) % 255, 255, 255);
+    fill(c);
+    stroke(c);
 
-      beginShape();
-      vertex(0, 0);
-      vertex(r * cos(a), r * sin(a));
-      vertex(r * cos(a + delta), r * sin(a + delta));
-      endShape(CLOSE);
-    }
-    fill(255);
-    stroke(255);
-    ellipse(0, 0, 8, 8);
-    pop();
-    colorMode(RGB);
-
-    s1.display();
-    s1.control();
-    s2.display();
-    s2.control();
-
-    s1.hdance();
-    s2.vdance();
+    beginShape();
+    vertex(0, 0);
+    vertex(r * cos(a), r * sin(a));
+    vertex(r * cos(a + delta), r * sin(a + delta));
+    endShape(CLOSE);
   }
+  fill(255);
+  stroke(255);
+  ellipse(0, 0, 8, 8);
+  pop();
+  colorMode(RGB);
+
+  s1.display();
+  s1.control();
+  s2.display();
+  s2.control();
+
+  s1.hdance();
+  s2.vdance();
 }
 
 function mousePressed() {
-  if (!started) {
+  if(!started) {
     started = true;
     audio.play();
-  } else {
+  }
+  else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
 
