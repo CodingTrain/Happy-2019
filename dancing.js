@@ -4,13 +4,13 @@
 
 // Simple Toxiclibs Spring
 var VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
-GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
-AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
-VerletParticle2D = toxi.physics2d.VerletParticle2D,
-VerletSpring2D = toxi.physics2d.VerletSpring2D,
-VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
-Vec2D = toxi.geom.Vec2D,
-Rect = toxi.geom.Rect;
+  GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
+  AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
+  VerletParticle2D = toxi.physics2d.VerletParticle2D,
+  VerletSpring2D = toxi.physics2d.VerletSpring2D,
+  VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
+  Vec2D = toxi.geom.Vec2D,
+  Rect = toxi.geom.Rect;
 
 // Reference to physics world
 var physics;
@@ -36,7 +36,7 @@ var audio;
 var started = false;
 
 function preload() {
-  audio = loadSound('data/auld2.mp3');;
+  audio = loadSound('data/auld2.mp3');
 }
 
 function setup() {
@@ -50,7 +50,7 @@ function setup() {
   // Set the world's bounding box
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
-  s1 = new Skeleton((3 * width) / 4, 100, 1, '1');
+  s1 = new Skeleton((3 * width) / 4, 100, 1, '0');
   s2 = new Skeleton(width / 4, 160, 0.75, '2');
   dance = true;
 }
@@ -60,8 +60,8 @@ var counter = 0;
 function draw() {
   // Update the physics world
   //if (dance || frameCount < 2) {
-    physics.update();
-    counter++;
+  physics.update();
+  counter++;
   //}
 
   background(255);
@@ -99,11 +99,10 @@ function draw() {
 }
 
 function mousePressed() {
-  if(!started) {
+  if (!started) {
     started = true;
     audio.play();
-  }
-  else {
+  } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
 

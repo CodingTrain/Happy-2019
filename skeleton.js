@@ -20,7 +20,9 @@ class Skeleton {
     //dbody = new Part(neck,belly,who+"body.png");
     //dlarm1 = new Part(lShoulder,lElbow,who+"larm1.png");
     //dlarm2 = new Part(lElbow,lHand,who+"larm2.png");
-    this.sign = new Part(this.lElbow, this.lHand, null, 'sign');
+    if (who == 0) {
+      this.sign = new Part(this.lElbow, this.lHand, null, 'sign');
+    }
     this.lKnee = new Particle(new Vec2D(x + 50 * this.scl, y + 230 * this.scl), 4 * this.scl);
     this.rKnee = new Particle(new Vec2D(x + 50 * this.scl, y + 230 * this.scl), 4 * this.scl);
     this.lFoot = new Particle(new Vec2D(x + 50 * this.scl, y + 280 * this.scl), 16 * this.scl);
@@ -153,7 +155,7 @@ class Skeleton {
     }
     for (var i = 0; i < this.dparts.length; i++) {
       var p = this.dparts[i];
-      p.display();
+      if (p) p.display();
     }
   }
 }

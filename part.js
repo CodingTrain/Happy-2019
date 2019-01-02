@@ -5,13 +5,13 @@ class Part {
     console.log(s, w);
     if (s !== null) {
       this.img = loadImage(s);
-    }
-    else {
+    } else {
       this.img = null;
     }
     this.dir = createVector();
     this.what = w || 'nothing';
   }
+
   display() {
     this.dir.x = this.b.p.x - this.a.p.x;
     this.dir.y = this.b.p.y - this.a.p.y;
@@ -22,21 +22,20 @@ class Part {
       imageMode(CENTER);
       rotate(angle - PI / 2);
       image(this.img, 0, 0);
-    }
-    else if (this.what === 'sign') {
-      /*translate(b.p.x,b.p.y);
-          stroke(0);
-          rotate(angle);
-          strokeWeight(8);
-          line(0,0,0,-50);
-          rectMode(CENTER);
-          fill(255);
-          strokeWeight(1);
-          rect(0,-50,100,50);
-          fill(0);
-          textAlign(LEFT);
-          textSize(24);
-          text("2014",0,-50);*/
+    } else if (this.what === 'sign') {
+      translate(this.b.p.x, this.b.p.y);
+      stroke(0);
+      rotate(angle);
+      strokeWeight(8);
+      line(0, 0, 0, -50);
+      rectMode(CENTER);
+      fill(255);
+      strokeWeight(1);
+      rect(0, -50, 100, 50);
+      fill(0);
+      textAlign(CENTER);
+      textSize(24);
+      text('2019', 0, -50);
     }
     pop();
   }
