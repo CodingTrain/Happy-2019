@@ -18,7 +18,7 @@ var physics;
 var s1;
 var s2;
 
-//make a new HTML5 audio object named audio
+// make a new HTML5 audio object named audio
 // Audio audio = new Audio();
 // make string that will house the audio extension
 var fileExt;
@@ -36,7 +36,7 @@ var audio;
 var started = false;
 
 function preload() {
-  audio = loadSound('data/auld2.mp3');
+  audio = loadSound('../data/auld2.mp3');
 }
 
 function setup() {
