@@ -36,7 +36,7 @@ var audio;
 var started = false;
 
 function preload() {
-  audio = loadSound('data/auld2.mp3');
+  //audio = loadSound('data/auld2.mp3');
 }
 
 function setup() {
@@ -51,7 +51,7 @@ function setup() {
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
   s1 = new Skeleton((3 * width) / 4, height/2, 1.25, '0');
-  s2 = new Skeleton(width / 4, height/2, 1.5, '2');
+  s2 = new Skeleton(width / 4, height/2, 1.5, str(round(random(1, 4))));
   dance = true;
 }
 
@@ -101,7 +101,7 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-    audio.play();
+    //audio.play();
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
