@@ -36,11 +36,11 @@ var audio;
 var started = false;
 
 function preload() {
-  audio = loadSound('../data/auld2.mp3');
+  audio = loadSound('data/auld2.mp3');
 }
 
 function setup() {
-  var canvas = createCanvas(600, 400);
+  var canvas = createCanvas(window.innerWidth*0.75, window.innerWidth*0.4);
   canvas.parent('dancing');
 
   // Initialize the physics
@@ -50,8 +50,8 @@ function setup() {
   // Set the world's bounding box
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
-  s1 = new Skeleton((3 * width) / 4, 100, 1, '0');
-  s2 = new Skeleton(width / 4, 160, 0.75, '2');
+  s1 = new Skeleton((3 * width) / 4, height/2, 1.25, '0');
+  s2 = new Skeleton(width / 4, height/2, 1.5, str(round(random(1, 4))));
   dance = true;
 }
 
