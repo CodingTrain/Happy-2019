@@ -10,23 +10,23 @@ class Skeleton {
     this.head = new Particle(new Vec2D(x, y), 16);
     this.neck = new Particle(new Vec2D(x, y + 0 * this.scl), 4);
     this.dhead = new Part(this.head, this.neck, `data/${who}head.png`, 'head');
-    this.lShoulder = new Particle(new Vec2D(x + 20 * this.scl, y + 80 * this.scl), 4 * this.scl);
-    this.rShoulder = new Particle(new Vec2D(x - 20 * this.scl, y + 80 * this.scl), 4 * this.scl);
-    this.lElbow = new Particle(new Vec2D(x + 100 * this.scl, y + 80 * this.scl), 8 * this.scl);
-    this.rElbow = new Particle(new Vec2D(x - 100 * this.scl, y + 80 * this.scl), 8 * this.scl);
-    this.lHand = new Particle(new Vec2D(x + 200 * this.scl, y + 80 * this.scl), 16 * this.scl);
-    this.rHand = new Particle(new Vec2D(x - 200 * this.scl, y + 80 * this.scl), 16 * this.scl);
-    this.belly = new Particle(new Vec2D(x, y + 120 * this.scl), 4 * this.scl);
+    this.lShoulder = new Particle(new Vec2D(x + width/30 * this.scl, y + height/5 * this.scl), 4 * this.scl);
+    this.rShoulder = new Particle(new Vec2D(x - width/30 * this.scl, y + height/5 * this.scl), 4 * this.scl);
+    this.lElbow = new Particle(new Vec2D(x + width/6 * this.scl, y + height/5 * this.scl), 8 * this.scl);
+    this.rElbow = new Particle(new Vec2D(x - width/6 * this.scl, y + height/5 * this.scl), 8 * this.scl);
+    this.lHand = new Particle(new Vec2D(x + height/2 * this.scl, y + height/5 * this.scl), 16 * this.scl);
+    this.rHand = new Particle(new Vec2D(x - height/2 * this.scl, y + height/5 * this.scl), 16 * this.scl);
+    this.belly = new Particle(new Vec2D(x, y+height/4), 4 * this.scl);
     //dbody = new Part(neck,belly,who+"body.png");
     //dlarm1 = new Part(lShoulder,lElbow,who+"larm1.png");
     //dlarm2 = new Part(lElbow,lHand,who+"larm2.png");
     if (who == 0) {
       this.sign = new Part(this.lElbow, this.lHand, null, 'sign');
     }
-    this.lKnee = new Particle(new Vec2D(x + 50 * this.scl, y + 230 * this.scl), 4 * this.scl);
-    this.rKnee = new Particle(new Vec2D(x + 50 * this.scl, y + 230 * this.scl), 4 * this.scl);
-    this.lFoot = new Particle(new Vec2D(x + 50 * this.scl, y + 280 * this.scl), 16 * this.scl);
-    this.rFoot = new Particle(new Vec2D(x + 50 * this.scl, y + 280 * this.scl), 16 * this.scl);
+    this.lKnee = new Particle(new Vec2D(x + width/12 * this.scl, y + height/1.5 * this.scl), 4 * this.scl);
+    this.rKnee = new Particle(new Vec2D(x + width/12 * this.scl, y + height/1.5 * this.scl), 4 * this.scl);
+    this.lFoot = new Particle(new Vec2D(x + width/12 * this.scl, y + height/1.5 * this.scl), 16 * this.scl);
+    this.rFoot = new Particle(new Vec2D(x + width/12 * this.scl, y + height/1.5 * this.scl), 16 * this.scl);
     this.head.lock();
     //rHand.lock();
     //lHand.lock();
@@ -42,8 +42,8 @@ class Skeleton {
     var spring6 = new VerletSpring2D(this.rHand.p, this.rElbow.p, 40 * this.scl, 0.01);
     var spring7 = new VerletSpring2D(this.lHand.p, this.lElbow.p, 40 * this.scl, 0.01);
     var spring8 = new VerletSpring2D(this.neck.p, this.belly.p, 50, 0.01);
-    var belly1 = new VerletMinDistanceSpring2D(this.belly.p, this.rShoulder.p, 100 * this.scl, 0.01);
-    var belly2 = new VerletMinDistanceSpring2D(this.belly.p, this.lShoulder.p, 100 * this.scl, 0.01);
+    var belly1 = new VerletMinDistanceSpring2D(this.belly.p, this.rShoulder.p, 10 * this.scl, 0.01);
+    var belly2 = new VerletMinDistanceSpring2D(this.belly.p, this.lShoulder.p, 10 * this.scl, 0.01);
     var head1 = new VerletMinDistanceSpring2D(this.head.p, this.rShoulder.p, 100 * this.scl, 0.01);
     var head2 = new VerletMinDistanceSpring2D(this.head.p, this.lShoulder.p, 100 * this.scl, 0.01);
     var spring9 = new VerletSpring2D(this.belly.p, this.lKnee.p, 80 * this.scl, 0.01);
@@ -120,7 +120,7 @@ class Skeleton {
   vdance() {
     //head.x = origin.x + sin(hangle)*20;
     if (!this.head.drag) {
-      this.head.p.y = this.origin.y + cos(this.vangle) * 20;
+      this.head.p.x = this.origin.y + cos(this.vangle) * 20;
       this.vangle += 0.3;
     }
   }
