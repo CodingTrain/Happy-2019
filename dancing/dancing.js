@@ -40,7 +40,7 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(window.innerWidth*0.75, window.innerWidth*0.5);
+  var canvas = createCanvas(window.innerWidth*0.75, window.innerWidth*0.4);
   canvas.parent('dancing');
 
   // Initialize the physics
@@ -50,8 +50,8 @@ function setup() {
   // Set the world's bounding box
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
-  s1 = new Skeleton((3 * width) / 4, 100, 1, '0');
-  s2 = new Skeleton(width / 4, 160, 0.75, '2');
+  s1 = new Skeleton((3 * width) / 4, height/2, 1.25, '0');
+  s2 = new Skeleton(width / 4, height/2, 1.5, '2');
   dance = true;
 }
 
