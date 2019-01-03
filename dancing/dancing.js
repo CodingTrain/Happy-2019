@@ -36,7 +36,7 @@ var audio;
 var started = false;
 
 function preload() {
-  //audio = loadSound('data/auld2.mp3');
+  audio = loadSound('data/auld2.mp3');
 }
 
 function setup() {
@@ -101,7 +101,7 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-    //audio.play();
+    audio.play();
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
