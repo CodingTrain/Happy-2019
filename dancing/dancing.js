@@ -40,7 +40,7 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(window.innerWidth*0.75, window.innerWidth*0.4);
+  var canvas = createCanvas(constrain(window.innerWidth*0.75, 0, 720), constrain(window.innerWidth*0.45, 0, 432));
   canvas.parent('dancing');
 
   // Initialize the physics
@@ -50,8 +50,8 @@ function setup() {
   // Set the world's bounding box
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
-  s1 = new Skeleton((3 * width) / 4, height/2, 1, '0');
-  s2 = new Skeleton(width / 4, height/2, 1.5, str(round(random(1, 4))));
+  s1 = new Skeleton((3 * width) / 4, height/2, height/600, '0');
+  s2 = new Skeleton(width / 4, height/2, height/550, str(round(random(1, 4))));
   dance = true;
 }
 
@@ -68,12 +68,12 @@ function draw() {
 
   push();
   translate(width / 2, height / 2);
-  rotate(counter * 0.01);
+  rotate(counter * 0.001);
   var delta = TWO_PI / 20;
   var r = width;
-  colorMode(HSB);
+  colorMode(HSB, 255);
   for (var a = 0; a < TWO_PI; a += delta) {
-    var c = color(int(map(a + counter / 20.0, 0, TWO_PI, 0, 255)) % 255, 255, 255);
+    var c = color(map(a + counter / 20.0, 0, TWO_PI, 0, 255) % 255, 255, 255);
     fill(c);
     stroke(c);
 
@@ -85,7 +85,7 @@ function draw() {
   }
   fill(255);
   stroke(255);
-  ellipse(0, 0, 8, 8);
+  ellipse(0, 0, abs(sin(frameCount/60.0))*15, abs(sin(frameCount/60.0))*15);
   pop();
   colorMode(RGB);
 
