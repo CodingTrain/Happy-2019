@@ -8,8 +8,36 @@
 
       body {
         margin: 0px;
+        margin-top: 100px;
         padding-bottom: 25px;
-        background-color: #e5e5e5;
+        background-color: #e6e6e6;
+      }
+
+      @keyframes title-down {
+        from {top: -65px;}
+        to {top: 0px;}
+      }
+
+      #title {
+        position: fixed;
+        width: 100%;
+        padding: 15px 0;
+        margin: 0;
+        text-align: center;
+        background-color: #282828;
+        box-shadow: 0px 5px 60px #363636;
+
+        animation-name: title-down;
+        animation-duration: 1s;
+
+        top: 0px;
+      }
+
+      #title > a {
+        color: #ffffff;
+        text-decoration: none;
+        font-family: "Product Sans", sans-serif;
+        font-size: 35px;
       }
 
       p {
@@ -22,24 +50,13 @@
       }
 
       a:visited {
-        color: #282828;
+        color: #303030;
       }
 
-      #title {
-        width: 100%;
-        padding: 15px 0px;
-        margin: 0;
-        color: #ffffff;
-        background-color: #282828;
-        text-align: center;
-        font-family: "Product Sans", sans-serif;
-        box-shadow: 0px 5px 10px #8c8c8c;
-      }
-
-      canvas {
+      canvas, img {
         margin-right: auto;
         margin-left: auto;
-        margin-top: 35px;
+        margin-top: 42px;
         display: block;
      }
     </style>
@@ -59,14 +76,20 @@
   </head>
 
   <body>
-    <h1 id="title">Happy 2019!</h1>
+    <div id="title">
+      <a href="https://github.com/CodingTrain/Happy-2019">Happy 2019!</a>
+    </div>
+
     <div id="dancing"></div>
     <div id="p5_loading"></div>
 
-    <p>Made by <a href="https://github.com/shiffman">@shiffman</a> using <a href="http://p5js.org/">p5.js</a> and <a href="http://haptic-data.com/toxiclibsjs/">toxiclibs.js</a></p>
+    <p>Sketch made by <a href="https://github.com/shiffman">@shiffman</a> using <a href="http://p5js.org/">p5.js</a> and <a href="http://haptic-data.com/toxiclibsjs/">toxiclibs.js</a></p>
     <p><a href="http://ccmixter.org/files/unreal_dm/29684">Auld Lang Syne (Bossa)</a><br />by unreal_dm 2010 - Licensed under Creative Commons Attribution (3.0)</p>
 
     <canvas data-processing-sources="fireworks/Fireworks.pde fireworks/Firework.pde"></canvas>
-    <p>Made by <a href="https://joogps.github.io/">@joogps</a> using <a href="https://processing.org/">Processing</a> and <a href="http://processingjs.org/">Processing.js</a></p>
+    <p>Sketch made by <a href="https://joogps.github.io/">@joogps</a> using <a href="https://processing.org/">Processing</a> and <a href="http://processingjs.org/">Processing.js</a></p>
+
+    <img src="arcs/arcs.gif" style="width:72.5%; max-width: 720;height:auto"></img>
+    <p>Gif made by <a href="https://github.com/villares">@villares</a> using <a href="https://py.processing.org/">Processing.py</a></p>
   </body>
 </html>

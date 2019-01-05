@@ -21,7 +21,7 @@ class Part {
       translate(this.a.p.x, this.a.p.y);
       imageMode(CENTER);
       rotate(angle - PI / 2);
-      image(this.img, 0, 0);
+      image(this.img, 0, 0, this.img.width*(height/5/this.img.height), height/5);
     } else if (this.what === 'sign') {
       translate(this.b.p.x, this.b.p.y);
       stroke(0);
