@@ -36,7 +36,7 @@ var audio;
 var started = false;
 
 function preload() {
-  //audio = loadSound('data/auld2.mp3');
+  audio = loadSound('data/auld2.mp3');
 }
 
 function setup() {
