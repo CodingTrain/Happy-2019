@@ -4,7 +4,7 @@ ArrayList<Firework> fireworks;
 PFont font;
 
 void setup() {
-  size(constrain(window.innerWidth*0.75, 0, 720), constrain(window.innerWidth*0.4, 0, 384));
+  size(window.innerWidth > 660 ? constrain(window.innerWidth*0.75, 0, 725) : window.innerWidth, window.innerWidth > 660 ? constrain(window.innerWidth*0.4, 0, 384) : window.innerWidth*0.5);
 
   colorMode(HSB);
 

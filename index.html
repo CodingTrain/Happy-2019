@@ -1,96 +1,139 @@
 <html>
-  <head>
-    <style>
-      @font-face{
-        font-family: "Product Sans";
-        src: url("data/Product Sans.ttf")  format("truetype");
-      }
+<head>
+  <style>
+  @font-face{
+    font-family: "Product Sans";
+    src: url("data/Product Sans.ttf")  format("truetype");
+  }
 
-      body {
-        margin: 0px;
-        margin-top: 100px;
-        padding-bottom: 25px;
-        background-color: #e6e6e6;
-      }
+  html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
 
-      @keyframes title-down {
-        from {top: -65px;}
-        to {top: 0px;}
-      }
+  body {
+    margin: 0px;
+    margin-top: 12%;
+    padding-bottom: 2.5%;
+    background-color: #e6e6e6;
+  }
 
-      #title {
-        position: fixed;
-        width: 100%;
-        padding: 15px 0;
-        margin: 0;
-        text-align: center;
-        background-color: #282828;
-        box-shadow: 0px 5px 60px #363636;
+  @keyframes title-down {
+    from {top: -65px;}
+    to {top: 0px;}
+  }
 
-        animation-name: title-down;
-        animation-duration: 1s;
+  #title {
+    position: fixed;
+    width: 100%;
+    padding: 15px 0px;
+    margin: 0;
+    text-align: center;
+    background-color: #282828;
+    box-shadow: 0px 5px 60px #363636;
 
-        top: 0px;
-      }
+    animation-name: title-down;
+    animation-duration: 1s;
 
-      #title > a {
-        color: #ffffff;
-        text-decoration: none;
-        font-family: "Product Sans", sans-serif;
-        font-size: 35px;
-      }
+    top: 0px;
+  }
 
-      p {
-        text-align: center;
-        font-family: monospace;
-      }
+  #title > a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Product Sans", sans-serif;
+    font-size: 30px;
+  }
 
-      a {
-        color: #404040;
-      }
+  .descriptions {
+    width: auto;
+    height: auto;
+    text-align: center;
+  }
 
-      a:visited {
-        color: #303030;
-      }
+  .descriptions > p {
+    display: inline-block;
+    width: 75%;
+    max-width: 725px;
+    height: auto;
+    text-align: center;
+    font-family: monospace;
+    font-size: 16px;
+    margin: 1.5% 0px 0px 0px;
+  }
 
-      canvas, img {
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 42px;
-        display: block;
-     }
-    </style>
+  a {
+    color: #404040;
+  }
 
-    <title> Happy 2019! </title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  a:visited {
+    color: #303030;
+  }
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
-    <script src="fireworks/processing.min.js"></script>
-    
-    <script type="text/javascript" src="dancing/toxiclibs.js"></script>
-    <script type="text/javascript" src="dancing/dancing.js"></script>
-    <script type="text/javascript" src="dancing/particle.js"></script>
-    <script type="text/javascript" src="dancing/skeleton.js"></script>
-    <script type="text/javascript" src="dancing/part.js"></script>
-  </head>
+  canvas, img {
+    display: block;    
+    margin: 5% auto 0px auto;
+  }
 
-  <body>
-    <div id="title">
-      <a href="https://github.com/CodingTrain/Happy-2019">Happy 2019!</a>
-    </div>
+  img {
+    width: 75vw;
+    max-width: 725px;
+    height: auto;
+  }
 
-    <div id="dancing"></div>
-    <div id="p5_loading"></div>
+  @media only screen and (max-width: 660px){
+    #title > a {
+      font-size: 50px;
+    }
 
-    <p>Sketch made by <a href="https://github.com/shiffman">@shiffman</a> using <a href="http://p5js.org/">p5.js</a> and <a href="http://haptic-data.com/toxiclibsjs/">toxiclibs.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/dancing">view source code</a></p>
-    <p><a href="http://ccmixter.org/files/unreal_dm/29684">Auld Lang Syne (Bossa)</a><br />by unreal_dm 2010 - Licensed under Creative Commons Attribution (3.0)</p>
+    .descriptions > p {
+      font-size: 14px;
+    }
 
-    <canvas data-processing-sources="fireworks/Fireworks.pde fireworks/Firework.pde"></canvas>
-    <p>Sketch made by <a href="https://joogps.github.io/">@joogps</a> using <a href="https://processing.org/">Processing</a> and <a href="http://processingjs.org/">Processing.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/fireworks">view source code</a></p>
+    img {
+      width: 100vw;
+      height: auto;
+    }
+  }
+</style>
 
-    <img src="arcs/arcs.gif" style="width:72.5%; max-width: 720;height:auto"></img>
-    <p>Gif made by <a href="https://github.com/villares">@villares</a> using <a href="https://py.processing.org/">Processing.py</a> - <a href="https://github.com/villares/sketch-a-day/tree/master/s367">view source code</a></p>
-    <p><i>"Feliz 2019"</i> means "Happy 2019" in Portuguese.</p>
-  </body>
+<title> Happy 2019! </title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+<script src="fireworks/processing.min.js"></script>
+
+<script type="text/javascript" src="dancing/toxiclibs.js"></script>
+<script type="text/javascript" src="dancing/dancing.js"></script>
+<script type="text/javascript" src="dancing/particle.js"></script>
+<script type="text/javascript" src="dancing/skeleton.js"></script>
+<script type="text/javascript" src="dancing/part.js"></script>
+</head>
+
+<body>
+  <div id="title"><a href="https://github.com/CodingTrain/Happy-2019">Happy 2019!</a></div>
+
+  <div id="dancing"></div>
+  <div id="p5_loading"></div>
+
+  <div class="descriptions"><p>Sketch made by <a href="https://github.com/shiffman">@shiffman</a> using <a href="http://p5js.org/">p5.js</a> and <a href="http://haptic-data.com/toxiclibsjs/">toxiclibs.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/dancing">view source code</a></p>
+
+  <p><a href="http://ccmixter.org/files/unreal_dm/29684">Auld Lang Syne (Bossa)</a><br/>By unreal_dm 2010 - Licensed under Creative Commons Attribution (3.0)</p></div>
+
+  <canvas data-processing-sources="fireworks/Fireworks.pde fireworks/Firework.pde"></canvas>
+  <div class="descriptions"><p>Sketch made by <a href="https://joogps.github.io/">@joogps</a> using <a href="https://processing.org/">Processing</a> and <a href="http://processingjs.org/">Processing.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/fireworks">view source code</a></p></div>
+
+  <img src="arcs/arcs.gif"></img>
+  <div class="descriptions"><p>Gif made by <a href="https://github.com/villares">@villares</a> using <a href="https://py.processing.org/">Processing.py</a> - <a href="https://github.com/villares/sketch-a-day/tree/master/s367">view source code</a></p>
+
+  <p><i>"Feliz 2019"</i> means "Happy 2019" in Portuguese.</p></div>
+
+  <script>
+    window.onresize = function(){
+      location.reload();
+    };
+  </script>
+</body>
 </html>
