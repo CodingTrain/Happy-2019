@@ -40,7 +40,7 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(window.innerWidth > 660 ? constrain(window.innerWidth*0.75, 0, 725) : window.innerWidth, window.innerWidth > 660 ? constrain(window.innerWidth*0.45, 0, 384) : window.innerWidth*0.55);
+  var canvas = createCanvas(window.innerWidth > 768 ? constrain(window.innerWidth*0.75, 0, 725) : window.innerWidth, window.innerWidth > 768 ? constrain(window.innerWidth*0.45, 0, 384) : window.innerWidth*0.55);
   canvas.parent('dancing');
 
   // Initialize the physics
