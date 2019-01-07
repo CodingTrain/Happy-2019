@@ -54,6 +54,8 @@ function setup() {
   s1 = new Skeleton((3 * width) / 4, height/2, height/600, '0');
   s2 = new Skeleton(width / 4, height/2, height/550, str(round(random(1, 4))));
   dance = true;
+
+  mousePos = new Vec2D();
 }
 
 var counter = 0;
