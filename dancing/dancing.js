@@ -4,13 +4,13 @@
 
 // Simple Toxiclibs Spring
 var VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
-  GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
-  AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
-  VerletParticle2D = toxi.physics2d.VerletParticle2D,
-  VerletSpring2D = toxi.physics2d.VerletSpring2D,
-  VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
-  Vec2D = toxi.geom.Vec2D,
-  Rect = toxi.geom.Rect;
+GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
+AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
+VerletParticle2D = toxi.physics2d.VerletParticle2D,
+VerletSpring2D = toxi.physics2d.VerletSpring2D,
+VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
+Vec2D = toxi.geom.Vec2D,
+Rect = toxi.geom.Rect;
 
 // Reference to physics world
 var physics;
@@ -35,14 +35,12 @@ var audio;
 
 var started = false;
 
-function preload() {
-  audio = loadSound('data/auld2.mp3');
-}
-
 function setup() {
   var parent = document.getElementById('dancing');
   var canvas = createCanvas(parent.offsetWidth, parent.offsetHeight);
   canvas.parent('dancing');
+
+  audio = loadSound('data/auld2.mp3');
 
   // Initialize the physics
   physics = new VerletPhysics2D();
@@ -61,8 +59,8 @@ var counter = 0;
 function draw() {
   // Update the physics world
   //if (dance || frameCount < 2) {
-  physics.update();
-  counter++;
+    physics.update();
+    counter++;
   //}
 
   background(255);
@@ -102,7 +100,9 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-    audio.play();
+
+    if(audio)
+      audio.play();
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
