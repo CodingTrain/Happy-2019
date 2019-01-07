@@ -35,12 +35,14 @@ var audio;
 
 var started = false;
 
+function preload() {
+  audio = loadSound('data/auld2.mp3');
+}
+
 function setup() {
   var parent = document.getElementById('dancing');
   var canvas = createCanvas(parent.offsetWidth, parent.offsetHeight);
   canvas.parent('dancing');
-
-  audio = loadSound('data/auld2.mp3');
 
   // Initialize the physics
   physics = new VerletPhysics2D();
@@ -100,9 +102,7 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-
-    if(audio)
-      audio.play();
+    audio.play();
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);

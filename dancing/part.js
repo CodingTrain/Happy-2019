@@ -10,7 +10,7 @@ class Part {
     this.dir = createVector();
     this.what = w || 'nothing';
   }
-
+  
   display() {
     this.dir.x = this.b.p.x - this.a.p.x;
     this.dir.y = this.b.p.y - this.a.p.y;
