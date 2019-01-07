@@ -1,4 +1,4 @@
-/* @pjs font="data/Product Sans.ttf"; */
+/* @pjs font="data/Nunito-Black.ttf"; */
 
 ArrayList<Firework> fireworks;
 PFont font;
@@ -10,7 +10,7 @@ void setup() {
   colorMode(HSB);
 
   fireworks = new ArrayList();
-  font = createFont("data/Product Sans.ttf", 12);
+  font = createFont("data/Nunito-Black.ttf", 12);
 }
 
 void draw() {

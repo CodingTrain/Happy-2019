@@ -100,7 +100,7 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-    audio = loadSound('data/auld2.mp3', function(){audio.play();});
+    audio = loadSound('data/auld.mp3', function(){audio.play();});
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
