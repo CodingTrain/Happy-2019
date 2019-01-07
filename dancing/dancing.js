@@ -4,13 +4,13 @@
 
 // Simple Toxiclibs Spring
 var VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
-  GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
-  AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
-  VerletParticle2D = toxi.physics2d.VerletParticle2D,
-  VerletSpring2D = toxi.physics2d.VerletSpring2D,
-  VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
-  Vec2D = toxi.geom.Vec2D,
-  Rect = toxi.geom.Rect;
+GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
+AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
+VerletParticle2D = toxi.physics2d.VerletParticle2D,
+VerletSpring2D = toxi.physics2d.VerletSpring2D,
+VerletMinDistanceSpring2D = toxi.physics2d.VerletMinDistanceSpring2D,
+Vec2D = toxi.geom.Vec2D,
+Rect = toxi.geom.Rect;
 
 // Reference to physics world
 var physics;
@@ -35,12 +35,9 @@ var audio;
 
 var started = false;
 
-function preload() {
-  audio = loadSound('data/auld2.mp3');
-}
-
 function setup() {
-  var canvas = createCanvas(constrain(window.innerWidth*0.75, 0, 720), constrain(window.innerWidth*0.45, 0, 432));
+  var parent = document.getElementById('dancing');
+  var canvas = createCanvas(parent.offsetWidth, parent.offsetHeight);
   canvas.parent('dancing');
 
   // Initialize the physics
@@ -53,6 +50,8 @@ function setup() {
   s1 = new Skeleton((3 * width) / 4, height/2, height/600, '0');
   s2 = new Skeleton(width / 4, height/2, height/550, str(round(random(1, 4))));
   dance = true;
+
+  mousePos = new Vec2D();
 }
 
 var counter = 0;
@@ -60,8 +59,8 @@ var counter = 0;
 function draw() {
   // Update the physics world
   //if (dance || frameCount < 2) {
-  physics.update();
-  counter++;
+    physics.update();
+    counter++;
   //}
 
   background(255);
@@ -101,7 +100,7 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-    audio.play();
+    audio = loadSound('data/auld.mp3', function(){audio.play();});
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
@@ -129,4 +128,8 @@ function keyPressed() {
   if (key == ' ') {
     //showHidden = !showHidden;
   }
+}
+
+function windowResized() {
+  setup();
 }

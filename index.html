@@ -1,96 +1,202 @@
 <html>
-  <head>
-    <style>
-      @font-face{
-        font-family: "Product Sans";
-        src: url("data/Product Sans.ttf")  format("truetype");
-      }
+<head>
+  <style>
+  @font-face{
+    font-family: "Nunito-Bold";
+    src: url("data/Nunito-Bold.ttf")  format("truetype");
+  }
 
-      body {
-        margin: 0px;
-        margin-top: 100px;
-        padding-bottom: 25px;
-        background-color: #e6e6e6;
-      }
+  body {
+    margin: 0px;
+    background-color: #e6e6e6;
+  }
 
-      @keyframes title-down {
-        from {top: -65px;}
-        to {top: 0px;}
-      }
+  @keyframes title-down {
+    from {top: calc(0px - (var(--title-size) + 15px*2));}
+    to {top: 0px;}
+  }
 
-      #title {
-        position: fixed;
-        width: 100%;
-        padding: 15px 0;
-        margin: 0;
-        text-align: center;
-        background-color: #282828;
-        box-shadow: 0px 5px 60px #363636;
+  #title {
+    position: fixed;
+    width: 100%;
+    padding: 15px 0px;
+    margin: 0;
+    text-align: center;
+    background-color: #282828;
+    box-shadow: 0px 5px 60px #363636;
 
-        animation-name: title-down;
-        animation-duration: 1s;
+    animation-name: title-down;
+    animation-duration: 1s;
 
-        top: 0px;
-      }
+    top: 0px;
 
-      #title > a {
-        color: #ffffff;
-        text-decoration: none;
-        font-family: "Product Sans", sans-serif;
-        font-size: 35px;
-      }
+    z-index: 1;
+  }
 
-      p {
-        text-align: center;
-        font-family: monospace;
-      }
+  #title > a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Nunito-Bold", sans-serif;
+    font-size: var(--title-size);
+  }
 
-      a {
-        color: #404040;
-      }
+  #contents {
+    top: calc((var(--title-size) + 15px*2)*1.5);
+    bottom: 15px;
+    width: 100%;
+  }
 
-      a:visited {
-        color: #303030;
-      }
+  .descriptions {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
 
-      canvas, img {
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 42px;
-        display: block;
-     }
-    </style>
+  .descriptions > p {
+    display: inline-block;
+    width: 100%;
+    max-width: 768px;
+    height: auto;
+    text-align: center;
+    font-family: monospace;
+    font-size: 16px;
+    margin-top: 0.8%;
+  }
 
-    <title> Happy 2019! </title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  a {
+    color: #404040;
+  }
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
-    <script src="fireworks/processing.min.js"></script>
-    
-    <script type="text/javascript" src="dancing/toxiclibs.js"></script>
-    <script type="text/javascript" src="dancing/dancing.js"></script>
-    <script type="text/javascript" src="dancing/particle.js"></script>
-    <script type="text/javascript" src="dancing/skeleton.js"></script>
-    <script type="text/javascript" src="dancing/part.js"></script>
-  </head>
+  a:visited {
+    color: #303030;
+  }
 
-  <body>
-    <div id="title">
-      <a href="https://github.com/CodingTrain/Happy-2019">Happy 2019!</a>
-    </div>
+  div {
+    position: relative;
+    display: block;
+    margin: 0px auto;
+  }
 
+  canvas, img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  @media only screen and (min-width: 0px) {
+    :root {
+      --title-size: 50px;
+    }
+
+    #title {
+      animation: none;
+    }
+
+    #contents {
+      top: calc(var(--title-size) + 15px);
+    }
+
+    div {
+      width: 100%;
+    }
+
+    #dancing, #fireworks {
+      padding-top: 60%;
+    }
+
+    #arcs {
+      padding-top: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    :root {
+      --title-size: 20px;
+    }
+
+    div {
+      width: 75%;
+    }
+
+    #dancing, #fireworks {
+      padding-top: calc(75%*0.6);
+    }
+
+    #arcs {
+      padding-top: 75%;
+    }
+  }
+
+  @media only screen and (min-width: 1120px) {
+    :root {
+      --title-size: 30px;
+    }
+
+    div {
+      width: 840;
+    }
+
+    #dancing, #fireworks {
+      padding-top: calc(840px*0.6);
+    }
+
+    #arcs {
+      padding-top: 840px;
+    }
+  }
+</style>
+
+<title> Happy 2019! </title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+<script src="fireworks/processing.min.js"></script>
+
+<script type="text/javascript" src="dancing/toxiclibs.js"></script>
+<script type="text/javascript" src="dancing/dancing.js"></script>
+<script type="text/javascript" src="dancing/particle.js"></script>
+<script type="text/javascript" src="dancing/skeleton.js"></script>
+<script type="text/javascript" src="dancing/part.js"></script>
+</head>
+
+<body>
+  <div id="title"><a href="https://github.com/CodingTrain/Happy-2019">Happy 2019!</a></div>
+
+  <div id="contents">
     <div id="dancing"></div>
     <div id="p5_loading"></div>
 
-    <p>Sketch made by <a href="https://github.com/shiffman">@shiffman</a> using <a href="http://p5js.org/">p5.js</a> and <a href="http://haptic-data.com/toxiclibsjs/">toxiclibs.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/dancing">view source code</a></p>
-    <p><a href="http://ccmixter.org/files/unreal_dm/29684">Auld Lang Syne (Bossa)</a><br />by unreal_dm 2010 - Licensed under Creative Commons Attribution (3.0)</p>
+    <div class="descriptions">
+      <p>Sketch made by <a href="https://github.com/shiffman">@shiffman</a> using <a href="http://p5js.org/">p5.js</a> and <a href="http://haptic-data.com/toxiclibsjs/">toxiclibs.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/dancing">view source code</a></p>
 
-    <canvas data-processing-sources="fireworks/Fireworks.pde fireworks/Firework.pde"></canvas>
-    <p>Sketch made by <a href="https://joogps.github.io/">@joogps</a> using <a href="https://processing.org/">Processing</a> and <a href="http://processingjs.org/">Processing.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/fireworks">view source code</a></p>
+      <br>
 
-    <img src="arcs/arcs.gif" style="width:72.5%; max-width: 720;height:auto"></img>
-    <p>Gif made by <a href="https://github.com/villares">@villares</a> using <a href="https://py.processing.org/">Processing.py</a> - <a href="https://github.com/villares/sketch-a-day/tree/master/s367">view source code</a></p>
-    <p><i>"Feliz 2019"</i> means "Happy 2019" in Portuguese.</p>
-  </body>
+      <p><a href="http://ccmixter.org/files/unreal_dm/29684">Auld Lang Syne (Bossa)</a><br/>By unreal_dm 2010 - Licensed under Creative Commons Attribution (3.0)</p>
+    </div>
+
+    <div id=fireworks>
+      <canvas data-processing-sources="fireworks/Fireworks.pde fireworks/Firework.pde"></canvas>
+    </div>
+
+    <div class="descriptions">
+      <p>Sketch made by <a href="https://joogps.github.io/">@joogps</a> using <a href="https://processing.org/">Processing</a> and <a href="http://processingjs.org/">Processing.js</a> - <a href="https://github.com/CodingTrain/Happy-2019/tree/master/fireworks">view source code</a></p>
+    </div>
+
+    <div id="arcs">
+      <img src="arcs/arcs.gif"></img>
+    </div>
+
+    <div class="descriptions">
+      <p>Gif made by <a href="https://github.com/villares">@villares</a> using <a href="https://py.processing.org/">Processing.py</a> - <a href="https://github.com/villares/sketch-a-day/tree/master/s367">view source code</a></p>
+
+      <p><i>"Feliz 2019"</i> means "Happy 2019" in Portuguese.</p>
+    </div>
+  </div>
+</body>
 </html>

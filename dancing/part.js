@@ -2,7 +2,6 @@ class Part {
   constructor(a_, b_, s, w) {
     this.a = a_;
     this.b = b_;
-    console.log(s, w);
     if (s !== null) {
       this.img = loadImage(s);
     } else {
@@ -11,7 +10,7 @@ class Part {
     this.dir = createVector();
     this.what = w || 'nothing';
   }
-
+  
   display() {
     this.dir.x = this.b.p.x - this.a.p.x;
     this.dir.y = this.b.p.y - this.a.p.y;

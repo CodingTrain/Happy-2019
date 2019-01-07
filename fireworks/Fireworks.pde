@@ -1,15 +1,16 @@
-/* @pjs font="data/Product Sans.ttf"; */
+/* @pjs font="data/Nunito-Black.ttf"; */
 
 ArrayList<Firework> fireworks;
 PFont font;
 
 void setup() {
-  size(constrain(window.innerWidth*0.75, 0, 720), constrain(window.innerWidth*0.4, 0, 384));
+  var parent = document.getElementById('fireworks');
+  size(parent.offsetWidth, parent.offsetHeight);
 
   colorMode(HSB);
 
   fireworks = new ArrayList();
-  font = createFont("data/Product Sans.ttf", 12);
+  font = createFont("data/Nunito-Black.ttf", 12);
 }
 
 void draw() {
@@ -39,3 +40,5 @@ float autoTextSize(String str, float w, float h, int l) {
   
   return min(minW, minH);
 }
+
+window.onresize = setup;
