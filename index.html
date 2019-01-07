@@ -45,10 +45,8 @@
     font-size: var(--title-size);
   }
 
-  #content {
-    position: relative;
-    top: calc(var(--title-size) + 15px*2 + 4%);
-
+  #contents {
+    top: calc((var(--title-size) + 15px*2)*1.5);
     width: 100%;
   }
 
@@ -96,7 +94,15 @@
 
   @media only screen and (min-width: 0px) {
     :root {
-      --title-size: 40px;
+      --title-size: 50px;
+    }
+
+    #title {
+      animation: none;
+    }
+
+    #contents {
+      top: calc(var(--title-size) + 15px);
     }
 
     div {
@@ -112,9 +118,9 @@
     }
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1000px) {
     :root {
-      --title-size: 30px;
+      --title-size: 20px;
     }
 
     div {
@@ -166,7 +172,7 @@
 <body>
   <div id="title"><a href="https://github.com/CodingTrain/Happy-2019">Happy 2019!</a></div>
 
-  <div id="content">
+  <div id="contents">
     <div id="dancing"></div>
     <div id="p5_loading"></div>
 

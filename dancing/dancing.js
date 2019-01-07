@@ -35,10 +35,6 @@ var audio;
 
 var started = false;
 
-function preload() {
-  audio = loadSound('data/auld2.mp3');
-}
-
 function setup() {
   var parent = document.getElementById('dancing');
   var canvas = createCanvas(parent.offsetWidth, parent.offsetHeight);
@@ -104,7 +100,7 @@ function draw() {
 function mousePressed() {
   if (!started) {
     started = true;
-    audio.play();
+    audio = loadSound('data/auld2.mp3', function(){audio.play();});
   } else {
     //s1.click(mouseX, mouseY);
     //s2.click(mouseX, mouseY);
