@@ -4,7 +4,8 @@ ArrayList<Firework> fireworks;
 PFont font;
 
 void setup() {
-  size(window.innerWidth > 768 ? constrain(window.innerWidth*0.75, 0, 725) : window.innerWidth, window.innerWidth > 768 ? constrain(window.innerWidth*0.4, 0, 384) : window.innerWidth*0.5);
+  var parent = document.getElementById('fireworks');
+  size(parent.offsetWidth, parent.offsetHeight);
 
   colorMode(HSB);
 
@@ -39,3 +40,5 @@ float autoTextSize(String str, float w, float h, int l) {
   
   return min(minW, minH);
 }
+
+window.onresize = setup;

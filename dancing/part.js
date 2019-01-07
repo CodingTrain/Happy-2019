@@ -2,7 +2,6 @@ class Part {
   constructor(a_, b_, s, w) {
     this.a = a_;
     this.b = b_;
-    console.log(s, w);
     if (s !== null) {
       this.img = loadImage(s);
     } else {
